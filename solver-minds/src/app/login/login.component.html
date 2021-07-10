@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="card">
+        <form class="text-center border border-light p-5" [formGroup]="loginForm" (submit)="signin(loginForm.value)">
+
+            <p class="h4 mb-4">Sign in</p>
+
+            <input type="email" id="defaultLoginFormEmail" formControlName="email" class="form-control mb-4"
+                placeholder="E-mail">
+            <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="alert alert-danger">
+                Email is Required</div>
+
+
+            <input type="password" id="defaultLoginFormPassword" formControlName="password" class="form-control mb-4"
+                placeholder="Password">
+            <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+                class="alert alert-danger">Password is Required</div>
+
+            <button mdbBtn color="info" class="my-4" type="submit" [disabled]="loginForm.invalid">Sign
+                in</button>
+
+            <p>Not a member?
+                <a>Register</a>
+            </p>
+        </form>
+    </div>
+</div>
+
+<ngx-spinner></ngx-spinner>
